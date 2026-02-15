@@ -2,8 +2,14 @@
   <footer class="bg-[#0a1732] text-slate-300">
     <div class="footer mx-auto max-w-6xl p-10">
       <aside>
-        <p class="text-lg font-black text-white">🦷 Denti</p>
+        <p class="text-lg font-black text-white"><i class="fa-solid fa-tooth mr-2 text-primary"></i>Denti</p>
         <p>Making smiles beautiful since 2002.</p>
+        <div class="mt-4 flex gap-3 text-sm">
+          <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-primary"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-primary"><i class="fa-brands fa-instagram"></i></a>
+          <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-primary"><i class="fa-brands fa-x-twitter"></i></a>
+          <a class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-primary"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
       </aside>
       <nav>
         <h6 class="footer-title">Company</h6>

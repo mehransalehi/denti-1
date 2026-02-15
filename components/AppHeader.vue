@@ -1,22 +1,29 @@
 <template>
-  <header class="bg-gradient-to-br from-[#a4f1e1] to-[#6bddca] pb-16">
-    <div class="navbar mx-auto max-w-6xl px-6 pt-6" data-animate>
-      <div class="flex-1">
-        <a class="btn btn-ghost text-xl font-black text-slate-900">🦷 Denti</a>
+  <header class="relative min-h-screen bg-gradient-to-br from-[#b9f3e8] via-[#8ae6d7] to-[#5ad9c8]">
+    <div
+      :class="[
+        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        scrolled ? 'bg-white/95 shadow-md backdrop-blur-md' : 'bg-transparent'
+      ]"
+    >
+      <div class="navbar mx-auto max-w-6xl px-6 py-4" data-animate>
+        <div class="flex-1">
+          <a class="text-xl font-black text-slate-900"><i class="fa-solid fa-tooth mr-2 text-primary"></i>Denti</a>
+        </div>
+        <div class="hidden gap-8 md:flex">
+          <a class="nav-link">Home</a>
+          <a class="nav-link">Services</a>
+          <a class="nav-link">About</a>
+          <a class="nav-link">Blog</a>
+        </div>
+        <button class="btn btn-primary btn-sm ml-4 rounded-full text-white">Book an Appointment</button>
       </div>
-      <div class="hidden gap-6 text-sm font-medium md:flex">
-        <a class="hover:text-primary">Home</a>
-        <a class="hover:text-primary">Services</a>
-        <a class="hover:text-primary">About</a>
-        <a class="hover:text-primary">Blog</a>
-      </div>
-      <button class="btn btn-primary btn-sm ml-3 rounded-full text-white">Book an Appointment</button>
     </div>
 
-    <section class="mx-auto grid max-w-6xl gap-8 px-6 pt-10 md:grid-cols-2 md:items-center">
+    <section class="mx-auto grid min-h-screen max-w-6xl gap-8 px-6 pb-10 pt-28 md:grid-cols-2 md:items-center">
       <div data-animate>
         <p class="text-xs font-bold uppercase tracking-[0.28em] text-primary">we care for your smile</p>
-        <h1 class="mt-3 text-5xl font-black leading-tight text-slate-900">Making Better<br>Smile.</h1>
+        <h1 class="mt-3 text-5xl font-black leading-tight text-slate-900 md:text-6xl">Making Better<br>Smile.</h1>
         <p class="mt-5 max-w-md text-sm text-slate-700">
           Experience world-class dentistry and friendly care designed to keep your confidence bright and healthy.
         </p>
@@ -25,18 +32,9 @@
           <button class="btn rounded-full">Learn More</button>
         </div>
         <div class="stats mt-8 bg-transparent shadow-none">
-          <div class="stat px-0">
-            <div class="stat-title text-slate-700">15k+</div>
-            <div class="stat-desc">Happy Patients</div>
-          </div>
-          <div class="stat px-0">
-            <div class="stat-title text-slate-700">20+</div>
-            <div class="stat-desc">Years Experience</div>
-          </div>
-          <div class="stat px-0">
-            <div class="stat-title text-slate-700">98%</div>
-            <div class="stat-desc">Positive Feedback</div>
-          </div>
+          <div class="stat px-0"><div class="stat-title text-slate-800">15k+</div><div class="stat-desc">Happy Patients</div></div>
+          <div class="stat px-0"><div class="stat-title text-slate-800">20+</div><div class="stat-desc">Years Experience</div></div>
+          <div class="stat px-0"><div class="stat-title text-slate-800">98%</div><div class="stat-desc">Positive Feedback</div></div>
         </div>
       </div>
 
@@ -47,3 +45,20 @@
     </section>
   </header>
 </template>
+
+<script setup lang="ts">
+const scrolled = ref(false)
+
+const handleScroll = () => {
+  scrolled.value = window.scrollY > 20
+}
+
+onMounted(() => {
+  handleScroll()
+  window.addEventListener('scroll', handleScroll)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+</script>
