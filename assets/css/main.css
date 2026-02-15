@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#f9fafb] text-slate-700;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-animate].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-float {
+  @apply transition duration-300;
+}
+
+.hover-float:hover {
+  transform: translateY(-6px);
+}
+
+.nav-link {
+  @apply relative text-sm font-medium text-slate-700 transition-colors duration-300 hover:text-primary;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-primary transition-transform duration-300;
+}
+
+.nav-link:hover::after {
+  @apply scale-x-100;
+}
+
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/60;
+}
+
+.card-image-zoom {
+  @apply overflow-hidden;
+}
+
+.card-image-zoom img {
+  @apply transition duration-500;
+}
+
+.card-hover:hover {
+  @apply shadow-xl;
+}
+
+.card-hover:hover .card-image-zoom img {
+  transform: scale(1.08);
+}
+
+.fade-up-enter-active,
+.fade-up-leave-active {
+  transition: all 0.45s ease;
+}
+
+.fade-up-enter-from,
+.fade-up-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
